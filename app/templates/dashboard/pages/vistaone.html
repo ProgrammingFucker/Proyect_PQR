@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block content %}
+<!--contenido de la vista de registro de casos del estudiante  -->
+<header>
+  <nav class="navbar navbar-white bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="container-fluid p-5">
+  <div class="row">
+    <div class="col-md-9 mb-3">
+      <div class="container1">
+        <!-- Contenido del primer contenedor -->
+        <div class="class p-5">
+          <h2 class="mb-4">Registra tu caso</h2>
+          <form>
+            <div class="row">
+              <div class="col md-6 mb-3">
+                <label for="cc" class="form-label"> Número de identificación *</label>
+                <input type="text" class="form-control" id="acc" maxlength="11">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre aquí">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="apellido" class="form-label">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Escriba su apellido aquí">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Correo electrónico:</label>
+                <input type="email" class="form-control" id="email" placeholder="Escriba su correo electrónico aquí">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="telefono" class="form-label">Teléfono:</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Escriba su teléfono aquí">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="mi-select">Eliga su caso:</label>
+                <select class="form-select" aria-label="Selecciona una opción">
+                  <option value="sel">Selecciona una opción</option>
+                  <option value="credA">Credit. Adicionales</option>
+                  <option value="credU">Credit. Unicos</option>
+                  <option value="homologacion">Homologaciones</option>
+                </select>
+              </div>
+              <div class=" col-md-6 mb-3">
+                <label for="mi-select">Eliga su programa academico:</label>
+                <select class="form-select" aria-label="Selecciona una opción">
+                  <option value="sel">Selecciona una opción</option>
+                  <option value="it">Ingenieria Telematica</option>
+                  <option value="im">Ingeneria Mecatronica</option>
+                  <option value="ii">Ingenieria Industrial</option>
+                  <option value="tsi">Tecnologia en gestión de sistemas integrados</option>
+                  <option value="tsst">Tecnologia en gestión de salud y seguridad en el trabajo</option>
+                  <option value="tsi">Tecnologia en gestión de sistemas informaticos</option>
+                  <option value="tt">Tecnologia en gestion de redes de telecomunicaciones</option>
+                  <option value="tse">Tecnologia en gestión de sistemas electromecanicos</option>
+                  <option value="taei">Tecnologia en Automatización electronica industrial</option>
+                  <option value="tpi">Tecnologia en gestión de procesos industriales</option>
+                  <option value="so">Tecnico profesional en operación de procesos de salud ocupacional</option>
+                  <option value="msi">Tecnica profesional en mantenimiento de sistemas informaticos</option>
+                  <option value="t">Tecnica profesional en instalacion y mantenimiento de redes de telecomunicaciones
+                  </option>
+                  <option value="mei">Tecnico profesional en mantenimiento electronico industrial</option>
+                  <option value="me">Tecnico profesional en mantenimiento electromecanico</option>
+                  <option value="pi">Tecnico profesional en operación de procesos industriales</option>
+
+                </select>
+
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Asunto:</label>
+              <textarea class="form-control" id="mensaje" rows="5" placeholder="Escriba su mensaje aquí"></textarea>
+            </div>
+            <div class="mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Aceptar autorización
+              </label>
+              <div class="invalid-feedback">
+              </div>
+            </div>
+            <div class="mb-4">
+              <button class="btn btn-primary" type="submit">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="container2 bg-secondary tex-dark p-4">
+        <!-- Contenido del segundo contenedor -->
+        <div class="texto">
+          La INSTITUCIÓN UNIVERSITARIA DE BARRANQUILLA, informa que de conformidad con la Ley 1581 de 2012 el Decreto
+          1377
+          de 2013, a la fecha ha recogido información que contiene datos personales obtenidos a través de este
+          formulario
+          digital, será tratado de manera confiable y segura para los siguientes fines: (i) ejecutar su objeto social
+          como
+          institución educativa; (ii) cumplir con las obligaciones propias y derivadas de la relación jurídica,
+          contractual, estatutaria y/o legal existente con el titular del dato; (iii) Establecer canales de comunicación
+          tradicionales y/o virtuales con el fin de suministrar información sobre los servicios, programas y actividades
+          y/o acciones de responsabilidad social empresarial realizadas con y hacia sus grupos de interés, lo que
+          incluye
+          atender sus peticiones, quejas y reclamos.<br><br>
+          Se informa así mismo que los datos podrán ser entregados de manera segura y bajo la dirección de la
+          Institución
+          Universitaria de Barranquilla, a proveedores de servicios y/o contratistas, nacionales o extranjeros, y en
+          todo
+          caso serán gestionados en una infraestructura segura por parte de esta organización y/o de sus encargados, de
+          manera confidencial y no serán cedidos a terceros. También pueden ser entregados a autoridades cuando así se
+          requiera conforme a su facultad legal.<br><br>
+          Para este efecto le agradecemos nos autorice el tratamiento con esta finalidad específica.<br><br>
+          Podrá consultar la Política de Privacidad, el marco normativo y el procedimiento que desarrolla el tratamiento
+          de datos personales y habeas data de la Institución Universitaria de Barranquilla
+          <br><br></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="pie">
+
+  <footer class="text-center text-white" style="background-color: #000057;">
+
+    <div class="container p-4 pb-0">
+
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Puedes encontrarnos en:
+            <br><a class="text-white" href="https://www.instagram.com/UniBarranquilla_/">Instagram</a><br>
+            <a class="text-white" href="https://www.facebook.com/UniBarranquilla/">Facebook</a><br><a class="text-white"
+              href="https://twitter.com/UniBarranquilla">Twitter</a><br><a class="text-white"
+              href="https://www.youtube.com/channel/UC76E4EukC9lbFQ4_rUD5nLw">YouTube</a></span>
+      </section>
+    </div>
+
+
+    <div class="text-center p-3" style="background-color: rgb(0, 0, 85);">
+
+      <a class="text-white" href="https://www.unibarranquilla.edu.co/">unibarranquilla.edu.co</a>
+    </div>
+  </footer>
+</section>
+
+
+
+{% endblock %}

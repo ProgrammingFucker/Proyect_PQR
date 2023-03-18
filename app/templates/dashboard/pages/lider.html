@@ -1,0 +1,44 @@
+{% extends "modulo_login/base.html" %}
+
+{% block content %}
+<header>
+  <nav class="navbar navbar-white bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="container mt-4">
+  <h1>Bienvenido, {{ username }}</h1>
+  <p>Aquí puedes ver y administrar las solicitudes de los estudiantes.</p>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ver Solicitudes</h5>
+          <p class="card-text">Ver las solicitudes hechas por los estudiantes</p>
+          <a href="vistauno.html" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Ver solicitudes</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Consultar</h5>
+          <p class="card-text">Puedes realizar consultas aqui..</p>
+          <a href="vistados.html" class="btn btn-primary"><i class="fas fa-users"></i>Consultar</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Registrar</h5>
+          <p class="card-text">Puedes registrar casos respondidos aqui.</p>
+          <a href="vistatres.html" class="btn btn-primary">Registrar</a>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
