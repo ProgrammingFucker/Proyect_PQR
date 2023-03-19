@@ -1,6 +1,6 @@
 1. Register falta.
-2. Crear un tabla de solicitudes
-3. Modificar el ID session.
+2. Crear un tabla de solicitudes (Lista)
+3. Modificar el ID session.(Lista)
 
 <!---Yo----!>
 
@@ -9,7 +9,7 @@
 5. beta: rechazar o aceptar una solicitud o sugerencia dada.
 		- Crear una funciòn, que permita aceptar una solicitud de un estudiante por parte del lider, esto quiere decir que al aceptar esta, se enviará a otra tabla de sql,  		  que reciba el nombre de solicitud procesada o en cuyo caso la solicitud haya sido rechaza enviar a una tabla llamada solicitud rechazada.
 
-5. Enviar solicitudes. 
+5. Enviar solicitudes. (lista)
 				<script>
 				Insert into `solicitud´ (nombre, edad, asunto) values ( datos `nombre`,`edad`,`Asunto`); 
 				#Se registra la solicitud.
