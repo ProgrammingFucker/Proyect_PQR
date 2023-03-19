@@ -136,11 +136,10 @@ def casos():
 @app.route("/solicitudes")
 def solicitudes():
     cursor = mysql.connection.cursor()
-    
     cursor.execute('SELECT * FROM solicitud')
     data = cursor.fetchall()
     cursor.close()
-    return render_template('dashboard/pages/vistatres.html', soli = data)
+    return render_template('dashboard/pages/vistatwo.html', soli = data)
 
 
 
@@ -150,7 +149,7 @@ def solicitudes():
 
 
 
-#Logout 
+#Cerrar session
 @app.route("/logout")
 def logout():
     session.clear()
