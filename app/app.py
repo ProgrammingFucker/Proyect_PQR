@@ -136,14 +136,10 @@ def casos():
 @app.route("/solicitudes")
 def solicitudes():
     cursor = mysql.connection.cursor()
-    cursor.execute('SELECT * FROM solicitud')
+    cursor.execute('SELECT * FROM `solicitud`')
     data = cursor.fetchall()
     cursor.close()
-    return render_template('dashboard/pages/vistatwo.html', soli = data)
-
-
-
-
+    return render_template('vistatwo', soli = data)
 
 
 
