@@ -17,37 +17,37 @@
         <!-- Contenido del primer contenedor -->
         <div class="class p-5">
           <h2 class="mb-4">Registra tu caso</h2>
-          <form>
+          <form action="cita" method="POST">
             <div class="row">
               <div class="col md-6 mb-3">
                 <label for="cc" class="form-label"> Número de identificación *</label>
-                <input type="text" class="form-control" id="acc" maxlength="11">
+                <input type="text" class="form-control" name="indentificacion" id="indentificacion" maxlength="11">
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Escriba su nombre aquí">
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escriba su nombre aquí">
               </div>
               <div class="col-md-6 mb-3">
                 <label for="apellido" class="form-label">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Escriba su apellido aquí">
+                <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Escriba su apellido aquí">
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="email" class="form-label">Correo electrónico:</label>
-                <input type="email" class="form-control" id="email" placeholder="Escriba su correo electrónico aquí">
+                <input type="email" class="form-control" name="correo" id="correo" placeholder="Escriba su correo electrónico aquí">
               </div>
               <div class="col-md-6 mb-3">
                 <label for="telefono" class="form-label">Teléfono:</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Escriba su teléfono aquí">
+                <input type="text" class="form-control" name="celular" id="celular" placeholder="Escriba su teléfono aquí">
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="mi-select">Eliga su caso:</label>
-                <select class="form-select" aria-label="Selecciona una opción">
+                <label for="caso">Eliga su caso:</label>
+                <select class="caso" id="caso" aria-label="Selecciona una opción">
                   <option value="sel">Selecciona una opción</option>
                   <option value="credA">Credit. Adicionales</option>
                   <option value="credU">Credit. Unicos</option>
@@ -55,8 +55,8 @@
                 </select>
               </div>
               <div class=" col-md-6 mb-3">
-                <label for="mi-select">Eliga su programa academico:</label>
-                <select class="form-select" aria-label="Selecciona una opción">
+                <label for="programas">Eliga su programa academico:</label>
+                <select name="programas" id="programas" class="form-select" aria-label="Selecciona una opción">
                   <option value="sel">Selecciona una opción</option>
                   <option value="it">Ingenieria Telematica</option>
                   <option value="im">Ingeneria Mecatronica</option>
@@ -82,7 +82,7 @@
             </div>
             <div class="mb-3">
               <label for="mensaje" class="form-label">Asunto:</label>
-              <textarea class="form-control" id="mensaje" rows="5" placeholder="Escriba su mensaje aquí"></textarea>
+              <textarea class="form-control" name="asunto" id="asunto" maxlength="255" minlength="1" rows="5" placeholder="Escriba su asunto aquí, máximo 255 caracteres."></textarea>
             </div>
             <div class="mb-3">
               <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>

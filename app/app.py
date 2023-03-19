@@ -108,6 +108,29 @@ def vistatres():
 
 
 
+#Registrar casos
+@app.route("/casos")
+def casos():
+    identificacion = request.form['identificacion']
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    correo = request.form['correo']
+    celular = request.form['celular']
+    caso = request.form["caso"] #Guardando los datos del checkbox del tipo de caso
+    programs = request.form["programas"] #Guardando los datos del checkbox del programa 
+    asunto = request.form['asunto']
+
+    curs = mysql.connection.curs()
+    curs.execute('INSERT INTO solicitud (identificacion, nombre, apellido, correo, celular, caso, programa, asunto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (identificacion, nombre, apellido, correo, celular, caso, programs, asunto))
+    mysql.connection.commit()
+    msg = 'Su caso se ha enviado de manera correcta!'
+    return render_template('index_estudiantes', msg=msg)
+
+
+
+
+
+
 #Ver Solicitudes Lider Totales
 
 @app.route("/solicitudes")
@@ -117,8 +140,6 @@ def solicitudes():
     data = cur.fetchall()
     cur.close()
     return render_template('dashboard/pages/vistatres.html', soli = data)
-
-
 
 
 
