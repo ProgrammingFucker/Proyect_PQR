@@ -13,27 +13,27 @@
 <div class="container">
     <div class="class p-5">
         <div class="class p-5">
-            <table class="table table-success table-striped">
+            <table class="table table-sm table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Estudiante</th>
-                    <th scope="col">Tipo de solicitud</th>
-                    <th scope="col">Programa academico</th>
-                    <th scope="col">Cuatrimestre</th>
-                    <th scope="col">Numero de identificación</th>
-                    <th scope="col">Asunto</th>
+                    <td>Estudiante<td>
+                    <td>Tipo de solicitud</td>
+                    <td>Programa academico</td>
+                    <td>Cuatrimestre</td>
+                    <td>Numero de identificación</td>
+                    <td>Asunto</td>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for solicitud in soli %}
+                  {% for data in soli %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>{{solicitud.0}}</td>
-                    <td>{{solicitud.1}}</td>
-                    <td>{{solicitud.2}}</td>
-                    <td>{{solicitud.3}}</td>
-                    <td>{{solicitud.4}}</td>
-                    <td>{{solicitud.5}}</td>
+                    
+                    <td>{{data.0}}</td>
+                    <td>{{data.1}}</td>
+                    <td>{{data.2}}</td>
+                    <td>{{data.3}}</td>
+                    <td>{{data.4}}</td>
+                    <td>{{data.5}}</td>
                   </tr>
                  {% endfor %}
                 </tbody>

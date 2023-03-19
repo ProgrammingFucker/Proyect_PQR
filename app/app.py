@@ -109,7 +109,7 @@ def vistatres():
 
 
 #Registrar casos
-@app.route("/casos")
+@app.route("/casos", methods=['POST'])
 def casos():
     identificacion = request.form['identificacion']
     nombre = request.form['nombre']
@@ -120,11 +120,11 @@ def casos():
     programs = request.form["programas"] #Guardando los datos del checkbox del programa 
     asunto = request.form['asunto']
 
-    curs = mysql.connection.curs()
-    curs.execute('INSERT INTO solicitud (identificacion, nombre, apellido, correo, celular, caso, programa, asunto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (identificacion, nombre, apellido, correo, celular, caso, programs, asunto))
+    cursor = mysql.connection.cursor()
+    cursor.execute('INSERT INTO solicitud (identificacion, nombre, apellido, correo, celular, caso, programa, asunto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (identificacion, nombre, apellido, correo, celular, caso, programs, asunto))
     mysql.connection.commit()
     msg = 'Su caso se ha enviado de manera correcta!'
-    return render_template('index_estudiantes', msg=msg)
+    return render_template('dashboard/pages/op_estudiantes.html', msg=msg)
 
 
 
@@ -135,10 +135,11 @@ def casos():
 
 @app.route("/solicitudes")
 def solicitudes():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT cc, nombre, apellido, correo, celular, caso, programa, asunto * FROM solicitudes by order by fecha asc ;')
-    data = cur.fetchall()
-    cur.close()
+    cursor = mysql.connection.cursor()
+    
+    cursor.execute('SELECT * FROM solicitud')
+    data = cursor.fetchall()
+    cursor.close()
     return render_template('dashboard/pages/vistatres.html', soli = data)
 
 
@@ -152,11 +153,7 @@ def solicitudes():
 #Logout 
 @app.route("/logout")
 def logout():
-    session('loggedin', None)
-    session('id', None)
-    session('usuario', None) 
-    session('correo', None)
-    session('password', None)
+    session.clear()
     return redirect(url_for('home'))
 
 
