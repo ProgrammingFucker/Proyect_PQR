@@ -20,14 +20,20 @@
               {% endif %}
             {% endwith %}
             <form action="/login" method="POST">
+              <center> <strong><label>Login Estudiante</label></center>
+              </strong>
+               <br>
               <div class="form-group">
                 <label for="username">Usuario</label>
                 <input type="text" class="form-control" id="username" name="username" required>
               </div>
+              <br />
               <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
+
+              <br />
               
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Acceder</button>
@@ -37,9 +43,9 @@
             </form>
 
 
-           <p><a href="{{url_for('lider')}}">lider</a></p>
-              
-          </form>
+           <form action="{{url_for('lider')}}" methods="POST">
+              <button class="btn btn-link">Estudiante</button>
+            </form>
            
               
           </div>
