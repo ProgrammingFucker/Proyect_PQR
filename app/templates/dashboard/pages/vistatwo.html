@@ -25,29 +25,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for solicitud in soli %}
                   <tr>
                     <th scope="row">1</th>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>{{solicitud.0}}</td>
+                    <td>{{solicitud.1}}</td>
+                    <td>{{solicitud.2}}</td>
+                    <td>{{solicitud.3}}</td>
+                    <td>{{solicitud.4}}</td>
+                    <td>{{solicitud.5}}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                  </tr>
+                 {% endfor %}
                 </tbody>
               </table>
         </div>

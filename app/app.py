@@ -108,6 +108,23 @@ def vistatres():
 
 
 
+#Ver Solicitudes Lider Totales
+
+@app.route("/solicitudes")
+def solicitudes():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT cc, nombre, apellido, correo, celular, caso, programa, asunto * FROM solicitudes by order by fecha asc ;')
+    data = cur.fetchall()
+    cur.close()
+    return render_template('dashboard/pages/vistatres.html', soli = data)
+
+
+
+
+
+
+
+
 
 
 

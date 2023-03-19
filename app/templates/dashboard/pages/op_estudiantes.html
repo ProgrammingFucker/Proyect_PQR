@@ -19,7 +19,9 @@
         <div class="card-body">
           <h5 class="card-title">Ver Solicitudes</h5>
           <p class="card-text">Aqui puedes observar tus solicitudes realizadas</p>
-          <a href="{{url_for('vistatwo' )}}" class="btn btn-primary"><i class="fas fa-clipboard-list">Consultar</i> </a>
+          <center>
+          <a href="{{url_for('vistatwo' )}}" class="btn btn-primary"><i class="fas fa-clipboard-list">Solicitudes</i> </a>
+        </center>
 
         </div>
       </div>
@@ -29,7 +31,9 @@
         <div class="card-body">
           <h5 class="card-title">Registrar caso</h5>
           <p class="card-text">Aqui puedes hacer el registro de una nueva solicitud..</p>
-          <a href="{{ url_for('vistaone') }}" class="btn btn-primary"><i class="fas fa-users"></i>Registrar Caso</a>
+          <center>
+          <a href="{{ url_for('vistaone') }}" class="btn btn-primary"><i class="fas fa-users">Registrar Caso</i></a>
+          </center>
 
         </div>
       </div>
@@ -39,7 +43,9 @@
         <div class="card-body">
           <h5 class="card-title">Consultar estado de mi solicitud</h5>
           <p class="card-text">Aqui puedes consultar en tiempo real el estado de tu solicitud...</p>
-          <a href="{{url_for('vistathree' )}}" class="btn btn-primary">Registrar</a>
+          <center>
+          <a href="{{url_for('vistathree' )}}" class="btn btn-primary"><i class="fas fa-users">Consultar</i></a>
+          </center>
         </div>
       </div>
     </div>
