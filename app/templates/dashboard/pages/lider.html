@@ -1,4 +1,4 @@
-{% extends "modulo_login/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <header>
@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title">Ver Solicitudes</h5>
           <p class="card-text">Ver las solicitudes hechas por los estudiantes</p>
-          <a href="vistauno.html" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Ver solicitudes</a>
+          <a href="{{url_for('vistaone' )}}" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Ver solicitudes</a>
         </div>
       </div>
     </div>
@@ -28,7 +28,8 @@
         <div class="card-body">
           <h5 class="card-title">Consultar</h5>
           <p class="card-text">Puedes realizar consultas aqui..</p>
-          <a href="vistados.html" class="btn btn-primary"><i class="fas fa-users"></i>Consultar</a>
+          <a href="{{url_for('vistatwo' )}}" class="btn btn-primary">Registrar</a>
+          
         </div>
       </div>
     </div>
@@ -37,7 +38,7 @@
         <div class="card-body">
           <h5 class="card-title">Registrar</h5>
           <p class="card-text">Puedes registrar casos respondidos aqui.</p>
-          <a href="vistatres.html" class="btn btn-primary">Registrar</a>
+          <a href="{{ url_for('vistados' )}}" class="btn btn-primary"><i class="fas fa-users"></i>Consultar</a>
         </div>
       </div>
     </div>

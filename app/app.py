@@ -38,6 +38,22 @@ def login():
             return render_template('login.html', msg=msg)
     
 
+@app.route('/login_lider', methods=['POST'])
+def login_lider():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor()
+        cursor.execute('SELECT * FROM login where correo = %s AND password = %s',(username, password))
+        user = cursor.fetchone()
+        if user:
+            return redirect(url_for('index_lider'))
+        else:
+            msg = 'Usuario y/o contraseña incorrectos.'
+            # El usuario y / o la contraseña son incorrectos
+            return render_template('login.html', msg=msg)
+    
+
 
 @app.route("/lider")
 def lider():
@@ -52,6 +68,39 @@ def estudiante():
 @app.route("/index_estudiante")
 def index_estudiante():
     return render_template('dashboard/pages/op_estudiantes.html')
+
+
+
+@app.route("/index_lider")
+def index_lider():
+    return render_template('dashboard/pages/lider.html')
+
+
+#URl'S Lider
+@app.route("/vistaone")
+def vistaone():
+    return render_template('dashboard/pages/vistaone.html')
+
+@app.route("/vistatwo")
+def vistatwo():
+    return render_template('dashboard/pages/vistatwo.html')
+
+@app.route("/vistathree")
+def vistathree():
+    return render_template('dashboard/pages/vistathree.html')
+
+#URL'S Students
+
+
+@app.route("/vistados")
+def vistados():
+    return render_template('dashboard/pages/vistados.html')
+
+@app.route("/vistatres")
+def vistatres():
+    return render_template('dashboard/pages/vistatres.html')
+
+
 
 
     
