@@ -9,6 +9,7 @@
           <div class="card-header">
             <div class="text-center">
               <img src="../static/img/logo_IUB.png" class="card-img-top w-50" alt="logoIUB">
+              <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a>
             </div>
           </div>
           <div class="card-body">
@@ -44,7 +45,7 @@
 
 
            <form action="{{url_for('lider')}}" methods="POST">
-              <button class="btn btn-link">Estudiante</button>
+              <button class="btn btn-link">Lider</button>
             </form>
            
               

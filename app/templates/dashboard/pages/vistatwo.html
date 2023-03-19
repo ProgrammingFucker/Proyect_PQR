@@ -1,44 +1,76 @@
-{% extends "/base.html" %}
+{% extends "base.html" %}
 {% block content %}
 <header>
     <nav class="navbar navbar-white bg-white">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
-        </a>
-        <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a>
-      </div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
+            </a>
+            <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a>
+        </div>
     </nav>
-  </header>
+</header>
 <div class="container">
-    <div class="class p-5">
-        <div class="class p-5">
+    <div class="row py-4">
+        <div class="col">
             <table class="table table-sm table-bordered table-striped">
                 <thead>
-                  <tr>
-                    <td>Estudiante<td>
-                    <td>Tipo de solicitud</td>
-                    <td>Programa academico</td>
-                    <td>Cuatrimestre</td>
-                    <td>Numero de identificación</td>
-                    <td>Asunto</td>
-                  </tr>
+                    <tr>
+                        <td>Num. empleado</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>Salario</td>
+                        <td>Genero</td>
+                        <td>Celular</td>
+                        <td>Ciudad</td>
+                        <td>Fecha nacimiento</td>
+                        <td>Fecha ingreso</td>
+                        <td>Editar</td>
+                        <td>Eliminar</td>
+                    </tr>
+
                 </thead>
+
+                <!-- El id del cuerpo de la tabla. -->
                 <tbody>
-                  {% for data in soli %}
-                  <tr>
-                    
-                    <td>{{data.0}}</td>
-                    <td>{{data.1}}</td>
-                    <td>{{data.2}}</td>
-                    <td>{{data.3}}</td>
-                    <td>{{data.4}}</td>
-                    <td>{{data.5}}</td>
-                  </tr>
-                 {% endfor %}
+                    {% for data in solicitud %}
+                    <tr>
+
+                        <td>ok</td>
+                        <td>{{data.1}}</td>
+                        <td>{{data.2}}</td>
+                        <td>{{data.3}}</td>
+                        <td>{{data4}}</td>
+                        <td>{{data.5}}</td>
+                        <td>{{data.6}}</td>
+                        <td>{{data.1}}</td>
+                        <td>{{data.8}}</td>
+                        <td><a href="/edit{{data[0]}}" class="btn btn-secondary btn-sm">Editar</a></td>
+                        <td>
+                            <form action="{{url_for('delete')}}" method="POST">
+                                <input type="hidden" name="id" value="{{data[0]}}">
+                                <button class="button is-danger">Eliminar</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
                 </tbody>
-              </table>
+            </table>
         </div>
+        <left>
+            <div class="row">
+                <div class="col-6">
+                    <label id="lbl-total"></label>
+                </div>
+        </left>
+        <div class="col-6" id="nav-paginacion"></div>
+        <center>
+            <div class="col-6" id="nav-paginacion"></div>
+
+            <input type="hidden" id="pagina" value="1">
+            <input type="hidden" id="orderCol" value="0">
+            <input type="hidden" id="orderType" value="asc">
     </div>
 </div>
 

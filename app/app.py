@@ -94,9 +94,9 @@ def vistatwo():
 def vistathree():
     return render_template('dashboard/pages/vistathree.html')
 
+
+
 #URL'S Students
-
-
 @app.route("/vistados")
 def vistados():
     return render_template('dashboard/pages/vistados.html')
@@ -136,10 +136,10 @@ def casos():
 @app.route("/solicitudes")
 def solicitudes():
     cursor = mysql.connection.cursor()
-    cursor.execute('SELECT * FROM `solicitud`')
+    cursor.execute('SELECT * FROM solicitud')
     data = cursor.fetchall()
     cursor.close()
-    return render_template('vistatwo', soli = data)
+    return render_template('vistatwo', solicitud = data)
 
 
 
