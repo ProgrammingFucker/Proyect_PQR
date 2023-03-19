@@ -31,6 +31,11 @@ def login():
         cursor.execute('SELECT * FROM login where correo = %s AND password = %s',(username, password))
         user = cursor.fetchone()
         if user:
+            session['loggedin'] = True
+            session['id'] = user[0]
+            session['usuario'] = user[1]
+            session['correo'] = user[2]
+            session['password'] = user[3]
             return redirect(url_for('index_estudiante'))
         else:
             msg = 'Usuario y/o contraseña incorrectos.'
@@ -103,7 +108,20 @@ def vistatres():
 
 
 
-    
+
+
+
+#Logout 
+@app.route("/logout")
+def logout():
+    session('loggedin', None)
+    session('id', None)
+    session('usuario', None) 
+    session('correo', None)
+    session('password', None)
+    return redirect(url_for('home'))
+
+
 #Ejecutar nuestra app cuando ejecutemos este archivo app.py
 if __name__ == '__main__':
     app.run(port=3000, debug=True)
