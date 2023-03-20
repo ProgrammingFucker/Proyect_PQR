@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "/base.html" %}
 
 {% block content %}
 <header>
@@ -12,68 +12,51 @@
   </nav>
 </header>
 <div class="container">
-  <div class="p-5">
-    <h1>Consultar</h1>
-    <nav class="navbar bg-light">
-      <form class="container-fluid" method="GET" , action="buscar">
-        <div class="input-group">
-
-          <input type="text" class="form-control" placeholder="buscar aqui" aria-label="Username"
-            aria-describedby="basic-addon1">
-
-        </div>
-      </form>
-    </nav>
+  <div class="search-bar">
+    <form name="formSearch" method="POST" action="{{ url_for('resultado') }}" class="search" autocomplete="off">
+      <input type="search" name="buscar" class="search__input" placeholder="Buscador con Python - Flask & MySQL" required>
+      <button type="submit" class="search__btn">
+        <i class="bi bi-search search__icon"></i>
+        Buscar
+      </button>
+    </form>
   </div>
   <div class="resultado">
+    {% block body %}
 
-    <center>
-      <h1>Consultas Realizados por Estudiantes</h1>
-      <br />
-    </center>
-    <center>
-      <!-- <table class="table table-sm table-bordered table-striped">
-        <thead>
-        <tr>
-          <th>Nº Estudiante</th>
-          <th>Identificación</td>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Correo</th>
-          <th>Celular</th>
-          <th>Caso</th>
-          <th>Programa</th>
-          <th>Asunto</th>
-          <th>Eliminar</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for solicitudes in datos %}
-        <tr>
-          <td>{{ solicitudes[0] }}</td>
-          <td>{{ solicitudes[1] }}</td>
-          <td>{{ solicitudes[2] }}</td>
-          <td>{{ solicitudes[3] }}</td>
-          <td>{{ solicitudes[4] }}</td>
-          <td>{{ solicitudes[5] }}</td>
-          <td>{{ solicitudes[6] }}</td>
-          <td>{{ solicitudes[7] }}</td>
-          <td>{{ solicitudes[8] }}</td>
-          <td>
-            <form action="{{url_for('delete')}}" method="POST">
-                <input type="hidden" name="id" value="{{solicitudes[0]}}">
-                <button class="btn btn-danger">Eliminar</button>
-            </form>
-        </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-      </table> -->
-    </center>
+    <h1 class="text-center">
+      Consultas Realizados por Estudiantes
+    </h1>
+    
+    {% endblock %}
   </div>
+  
 </div>
-<br/>
-<br/>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<br />
+<br />
+
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
 
 <section class="pie">
 

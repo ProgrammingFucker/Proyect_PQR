@@ -1,5 +1,19 @@
 
-from flask import Flask, redirect, render_template, request, session, url_for, flash
-from flask_mysqldb import MySQL
-from MySQLdb.cursors import Cursor
 
+#Importando Libreria mysql.connector para conectar Python con MySQL
+import mysql.connector
+
+def connectionBD():
+    mydb = mysql.connector.connect(
+        host ="localhost",
+        user ="root",
+        passwd ="",
+        database = "mydb"
+        )
+    return mydb
+    '''       
+    if mydb:
+        print ("Conexion exitosa")
+    else:
+        print ("Error en la conexion a BD")
+    '''

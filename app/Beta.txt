@@ -20,9 +20,9 @@
 
 
 6. Falta realizar el index del estudiante, ya que que lider,
-									     Es el que tiene el acceso a todos los casos registrados, puede registrar casos y ver el estado del caso 									     registrado.
+									     (Es el que tiene el acceso a todos los casos registrados, puede registrar casos y ver el estado del caso 									     registrado.)
 									*El estudiante* 
-											   Solo tiene la autorización de registrar su caso, y ver el estado de este y ya. no tiene la 												   potestad de ver el estado de de otros estudiantes.
+											   (Solo tiene la autorización de registrar su caso, y ver el estado de este y ya. no tiene la 												    potestad de ver el estado de de otros estudiantes.)
  
 <¡---Yo----¡>
 

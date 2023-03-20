@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 from MySQLdb.cursors import Cursor
+from config import *
 # Crear app mediante instancia
 
 app = Flask(__name__)
@@ -16,7 +17,6 @@ mysql = MySQL(app)
 
 # "secret_key" se utiliza para establecer una clave secreta para la aplicación. La clave secreta es una cadena de caracteres que se utiliza para cifrar y descifrar datos sensibles, como cookies de sesión, contraseñas, etc.
 app.secret_key = 'Libra2004$#'
-
 
 
 @app.route('/')
@@ -46,7 +46,6 @@ def login():
             msg = 'Usuario y/o contraseña incorrectos.'
             # El usuario y / o la contraseña son incorrectos
             return render_template('login.html', msg=msg)
-
 
 
 @app.route('/login_lider', methods=['POST'])
@@ -92,25 +91,18 @@ def delete(id):
     with cursor.cursor() as cursor:
         cursor.execute('DELETE * FROM solicitudes where id ={0}'.format(id))
     cursor.commit()
-    msg='Elemento eliminado correctamente'
+    msg = 'Elemento eliminado correctamente'
     return redirect(url_for('vistatwo', msg=msg))
     cursor.close()
 
 
 # Buscar consulta
-
-@app.route('/buscar')
-def buscar():
-    sql = "SELECT * FROM solicitud"
-    cursor = mysql.connection.cursor()
-    cursor.execute(sql)
-    solicitudes = cursor.fetchall()
-    # print(solicitudes)
-    cursor.close()
-    return render_template('vistatwo.html', datos=solicitudes)
+@app.route('/consulta', methods=['GET', 'POST'])
+def consulta():
+    return render_template('dashboard/pages/consulta.html')
 
 
-# Rutas Básicas
+# Rutas ásicas
 
 @app.route("/lider")
 def lider():
@@ -149,15 +141,20 @@ def vistatwo():
     return render_template('dashboard/pages/vistatwo.html', ver=solicitudes)
 
 
-@app.route("/buscarconsulta")
-def buscarconsulta():
-    sql = "SELECT * FROM solicitud"
-    cursor = mysql.connection.cursor()
-    cursor.execute(sql)
-    soli = cursor.fetchall()
-    # print(soli)
-    cursor.close()
-    return render_template('dashboard/pages/consulta.html', datos=soli)
+@app.route("/resultado", methods=['GET', 'POST'])
+def resultado():
+    if request.method == "POST":
+        if request.method == "POST":
+            search = request.form['buscar']
+            conexion_MySQLdb = connectionBD()  # creando mi instancia a la conexion de BD
+            cur = conexion_MySQLdb.cursor(dictionary=True)
+            querySQL = cur.execute(
+                "SELECT * FROM solicitud WHERE nombre='%s' ORDER BY id  DESC" % (search,))
+            resultadoBusqueda = cur.fetchone()
+            cur.close()  # Cerrando conexion SQL
+            conexion_MySQLdb.close()  # cerrando conexion de la BD
+            return render_template('dashboard/pages/resultado.html',  miData = resultadoBusqueda, busqueda = search)
+    return redirect(url_for('consulta'))
 
 
 # URL'S Students
@@ -184,7 +181,6 @@ def casos():
     # Guardando los datos del checkbox del programa
     programs = request.form["programas"]
     asunto = request.form['asunto']
-
     cursor = mysql.connection.cursor()
     cursor.execute('INSERT INTO solicitud (identificacion, nombre, apellido, correo, celular, caso, programa, asunto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)',
                    (identificacion, nombre, apellido, correo, celular, caso, programs, asunto))
@@ -196,16 +192,13 @@ def casos():
 # Ver todas las solicitudes Lider Totales
 
 
-
-
-
-#Cerrar session
+# Cerrar session
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for('home'))
 
 
-#Ejecutar nuestra app cuando ejecutemos este archivo app.py
+# Ejecutar nuestra app cuando ejecutemos este archivo app.py
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
