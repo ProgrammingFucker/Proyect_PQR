@@ -9,7 +9,7 @@
 4. El lider, puede ver todas las solicitudes dadas (Lista),
 									   (No es mucho, solo es por medio de un for, si me muestra todas las solicitudes.)
 
-5. beta: rechazar o aceptar una solicitud o sugerencia dada.
+5. beta: rechazar o aceptar una solicitud o sugerencia dada.(BETA)
 		- Crear una funciòn, que permita aceptar una solicitud de un estudiante por parte del lider, esto quiere decir que al aceptar esta, se enviará a otra tabla de sql,  		  que reciba el nombre de solicitud procesada o en cuyo caso la solicitud haya sido rechaza enviar a una tabla llamada solicitud rechazada.
 
 5. Enviar solicitudes. (lista)
@@ -28,7 +28,7 @@
 
 
 7. Mostrar solicitudes por medio el id, del estudiantes.
-8. Busqueda de solicitudes dadas.
+8. Busqueda de solicitudes dadas. (Lista)
 
 
 
