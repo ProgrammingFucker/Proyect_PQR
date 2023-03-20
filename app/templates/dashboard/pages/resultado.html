@@ -3,134 +3,40 @@
 
 {%block body %}
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.6rem;
-    padding: 0;
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
-  }
-  
-  p {
-    font-size: 0.8rem;
-  }
-  
- 
- .mt-50{
-  margin-top: 50px;
- }
-  
-  .hide-element {
-    display: none !important;
-  }
-  
-  .mobile-search {
-    margin: 0 1em;
-    opacity: 1 !important;
-    visibility: visible !important;
-    width: 100%;
-  }
-  
-  .close-icon {
-    color: #909090 !important;
-    position: absolute !important;
-    right: 8% !important;
-    font-size: 1rem;
-  }
-  
-  @-webkit-keyframes rotation-show {
-    0% {
-      transform: perspective(1000px) rotateX(-90deg);
-    }
-    100% {
-      transform: perspective(1000px) translateY(0);
-    }
-  }
-  
-  @keyframes rotation-show {
-    0% {
-      transform: perspective(1000px) rotateX(-90deg);
-    }
-    100% {
-      transform: perspective(1000px) translateY(0);
-    }
-  }
-
-  .bi-code-slash{
-    color: #fff;
-  }
-  .search__icon{
-    color: #fff;
-  }
-  .input_vacio{
-    border: 1px solid red !important;
-    background-color: #fff !important;
-  }
-  .busq{
-    font-size: 35px;
-    font-weight: 800;
-  }
-  .text-center{
-    text-align: center;
-  }
-  .colorCrimson{
-    color: crimson;
-    font-size: 25px;
-    font-weight: 700;
-  }
-#RespBusq{
-  width: 95%;
-  height: auto;
-  margin: 0 auto;
-  padding: 20px 30px;
-  margin-top: 50px;
-  background-color: #f2f4f8;
-  box-shadow: rgba(0, 0, 0, .02) 0px 3px 8px;
-}
-h4{
-  margin-bottom: 30px;
-}
-p{
-  font-size: 15px;
-  color: #263137 !important;
-  font-weight: bold;
-}
-p strong{
-  color: green !important;
-}
-section{
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-
- </style>
-
-
 <div class="resultado" class="text-center">
-  <h4 class="text-center">resultado de Solicitudes</h4>
+  <h4 class="text-center">Resultado de Solicitudes</h4>
+  <br>
   {% if (miData) %} <!--Existe-->
   <section>
-    <p>
-      Nombre y Apellido: <strong>{{ miData.nombre }} {{ miData.apellido }} </strong>
-    </p>
-    <p>
-      Email: <strong>{{ miData.correo }}</strong>
-    </p>
-    <p>
-      Fecha de Ingreso: <strong>{{ miData.asunto }}</strong>
-    </p>
+    <table class="table table-sm table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Noª</th>
+        <th>Identificacion</th>
+        <th>Nombre </th>
+        <th>Apellido </th>
+        <th>Correo </th>
+        <th>Celular </th>
+        <th>Caso </th>
+        <th>Programa </th>
+        <th>Asunto </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ miData.id }}</td>
+          <td>{{ miData.identificacion }}</td>
+          <td>{{ miData.nombre }}</td>
+          <td>{{ miData.apellido }}</td>
+          <td>{{ miData.correo }}</td>
+          <td>{{ miData.celular }}</td>
+          <td>{{ miData.caso }}</td>
+          <td>{{ miData.programa }}</td>
+          <td>{{ miData.asunto }}</td>
+        </tr>
+      </tbody>
+    </table>
+     
   </section>
   {% else %}
   <p>No hay resultados para la busqueda:
