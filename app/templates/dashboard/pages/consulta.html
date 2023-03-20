@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <nav class="navbar navbar-white bg-white">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
+        <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}">Cerrar sesión</a>
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <div class="p-5">
+    <h1>Consultar</h1>
+    <nav class="navbar bg-light">
+      <form class="container-fluid" method="GET" , action="buscar">
+        <div class="input-group">
+
+          <input type="text" class="form-control" placeholder="buscar aqui" aria-label="Username"
+            aria-describedby="basic-addon1">
+
+        </div>
+      </form>
+    </nav>
+  </div>
+  <div class="resultado">
+
+    <center>
+      <h1>resultado</h1>
+      <br />
+    </center>
+    <center>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+        {% for solicitudes in datos %}
+        <tr>
+          <td>{{ solicitudes[0] }}</td>
+          <td>{{ solicitudes[1] }}</td>
+          <td>{{ solicitudes[2] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </center>
+  </div>
+</div>
+{% endblock %}

@@ -33,26 +33,9 @@
 
                 <!-- El id del cuerpo de la tabla. -->
                 <tbody>
-                    {% for data in solicitud %}
+                    {% for solicitudes in datos %}
                     <tr>
-
-                        <td>ok</td>
-                        <td>{{data.1}}</td>
-                        <td>{{data.2}}</td>
-                        <td>{{data.3}}</td>
-                        <td>{{data4}}</td>
-                        <td>{{data.5}}</td>
-                        <td>{{data.6}}</td>
-                        <td>{{data.1}}</td>
-                        <td>{{data.8}}</td>
-                        <td><a href="/edit{{data[0]}}" class="btn btn-secondary btn-sm">Editar</a></td>
-                        <td>
-                            <form action="{{url_for('delete')}}" method="POST">
-                                <input type="hidden" name="id" value="{{data[0]}}">
-                                <button class="button is-danger">Eliminar</button>
-                            </form>
-                        </td>
-
+                        <td>{{ solicitudes.0 }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
