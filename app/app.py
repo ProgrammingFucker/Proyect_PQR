@@ -149,7 +149,7 @@ def resultado():
             conexion_MySQLdb = connectionBD()  # creando mi instancia a la conexion de BD
             cur = conexion_MySQLdb.cursor(dictionary=True)
             querySQL = cur.execute(
-                "SELECT * FROM solicitud WHERE nombre='%s' ORDER BY id ASC" % (search,))
+                "SELECT * FROM solicitud WHERE caso='%s' ORDER BY id ASC" % (search,))
             resultadoBusqueda = cur.fetchone()
             cur.close()  # Cerrando conexion SQL
             conexion_MySQLdb.close()  # cerrando conexion de la BD
