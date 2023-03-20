@@ -32,19 +32,34 @@
       <br />
     </center>
     <center>
-      <table>
+      <table class="table table-sm table-bordered table-striped">
+        <thead>
         <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Edad</th>
+          <td>Num Estudiante</td>
+          <td>Identificación</td>
+          <td>Nombre</td>
+          <td>Apellido</td>
+          <td>Correo</td>
+          <td>Celular</td>
+          <td>Caso</td>
+          <td>Programa</td>
+          <td>Asunto</td>
         </tr>
+        </thead>
+        <tbody>
         {% for solicitudes in datos %}
         <tr>
           <td>{{ solicitudes[0] }}</td>
           <td>{{ solicitudes[1] }}</td>
           <td>{{ solicitudes[2] }}</td>
+          <td>{{ solicitudes[3] }}</td>
+          <td>{{ solicitudes[4] }}</td>
+          <td>{{ solicitudes[5] }}</td>
+          <td>{{ solicitudes[6] }}</td>
+          <td>{{ solicitudes[7] }}</td>
         </tr>
         {% endfor %}
+        </tbody>
       </table>
     </center>
   </div>

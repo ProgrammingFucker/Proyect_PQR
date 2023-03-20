@@ -18,6 +18,7 @@ mysql = MySQL(app)
 app.secret_key = 'Libra2004$#'
 
 
+
 @app.route('/')
 def home():
     return render_template('login.html')
@@ -61,22 +62,7 @@ def login_lider():
             return redirect(url_for('index_lider'))
         else:
             msg = 'Usuario y/o contraseña incorrectos.'
-            # El usuario y / o la contraseña son incorrectos
             return render_template('login_admin.html', msg=msg)
-
-
-
-@app.route("/solicitudes")
-def solicitudes():
-        sql = "SELECT * FROM solicitud"
-        cursor = mysql.connection.cursor()
-        cursor.execute(sql)
-        ver = cursor.fetchall()
-        print(ver)
-        cursor.close()
-        return render_template('vistatwo.html', datos=ver)
-
-
 
 
 # Editar consulta
@@ -100,14 +86,15 @@ def editar(id):
 
 
 # Borrar consulta/ Comentario realizada por Estudiante o Lider
-@app.route('/borrar/<int:id>', methods=['GET', 'POST'])
-def borrar(id):
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    cursor.execute("DELETE FROM consulta WHERE id=%s", (id,))
-    conn.commit()
-    msg = 'Se ha eliminado la persona.'
-    return redirect('/', msg=msg)
+@app.route('/delete', methods=['POST'])
+def delete(id):
+    cursor = mysql.connection.cursor()
+    with cursor.cursor() as cursor:
+        cursor.execute('DELETE * FROM solicitudes where id ={0}'.format(id))
+    cursor.commit()
+    msg='Elemento eliminado correctamente'
+    return redirect(url_for('vistatwo', msg=msg))
+    cursor.close()
 
 
 # Buscar consulta
@@ -153,12 +140,24 @@ def vistaone():
 
 @app.route("/vistatwo")
 def vistatwo():
-    return render_template('dashboard/pages/vistatwo.html')
+    sql = "SELECT * FROM solicitud"
+    cursor = mysql.connection.cursor()
+    cursor.execute(sql)
+    solicitudes = cursor.fetchall()
+    print(solicitudes)
+    cursor.close()
+    return render_template('dashboard/pages/vistatwo.html', ver=solicitudes)
 
 
 @app.route("/buscarconsulta")
 def buscarconsulta():
-    return render_template('dashboard/pages/consulta.html')
+    sql = "SELECT * FROM solicitud"
+    cursor = mysql.connection.cursor()
+    cursor.execute(sql)
+    soli = cursor.fetchall()
+    print(soli)
+    cursor.close()
+    return render_template('dashboard/pages/consulta.html', datos=soli)
 
 
 # URL'S Students
@@ -209,4 +208,4 @@ def logout():
 
 #Ejecutar nuestra app cuando ejecutemos este archivo app.py
 if __name__ == '__main__':
-    app.run(port=3000, debug=True)
+    app.run(port=5000, debug=True)
