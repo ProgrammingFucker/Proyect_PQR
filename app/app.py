@@ -47,6 +47,7 @@ def login():
             return render_template('login.html', msg=msg)
 
 
+
 @app.route('/login_lider', methods=['POST'])
 def login_lider():
     if request.method == 'POST':
@@ -61,7 +62,8 @@ def login_lider():
         else:
             msg = 'Usuario y/o contraseña incorrectos.'
             # El usuario y / o la contraseña son incorrectos
-            return render_template('login.html', msg=msg)
+            return render_template('login_admin.html', msg=msg)
+
 
 
 @app.route("/solicitudes")
@@ -69,10 +71,12 @@ def solicitudes():
         sql = "SELECT * FROM solicitud"
         cursor = mysql.connection.cursor()
         cursor.execute(sql)
-        solicitudes = cursor.fetchall()
-        print(solicitudes)
+        ver = cursor.fetchall()
+        print(ver)
         cursor.close()
-        return render_template('vistatwo.html', datos=solicitudes)
+        return render_template('vistatwo.html', datos=ver)
+
+
 
 
 # Editar consulta
@@ -107,7 +111,7 @@ def borrar(id):
 
 
 # Buscar consulta
-"""
+
 @app.route('/buscar')
 def buscar():
     sql = "SELECT * FROM solicitud"
@@ -117,7 +121,7 @@ def buscar():
     print(solicitudes)
     cursor.close()
     return render_template('vistatwo.html', datos=solicitudes)
-"""
+
 
 # Rutas Básicas
 

@@ -33,9 +33,22 @@
 
                 <!-- El id del cuerpo de la tabla. -->
                 <tbody>
-                    {% for solicitudes in datos %}
+                    {% for ver in datos %}
                     <tr>
-                        <td>{{ solicitudes.0 }}</td>
+                        <td>{{ ver.0 }}</td>
+                        <td>{{ ver.1 }}</td>
+                        <td>{{ ver.2 }}</td>
+                        <td>{{ ver.2 }}</td>
+                        <td>{{ ver.3 }}</td>
+                        <td>{{ ver.4 }}</td>
+                        <td>{{ ver.5 }}</td>
+                        <td><a href="/edit{{ver.0}}" class="btn btn-secondary btn-sm">Editar</a></td>
+                                <td>
+                                    <form action="{{url_for('delete')}}" method="POST">
+                                        <input type="hidden" name="id" value="{{ver[0]}}">
+                                        <button class="button is-danger">Eliminar</button>
+                                    </form>
+                                </td>
                     </tr>
                     {% endfor %}
                 </tbody>
