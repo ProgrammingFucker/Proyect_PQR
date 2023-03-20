@@ -105,7 +105,7 @@ def buscar():
     cursor = mysql.connection.cursor()
     cursor.execute(sql)
     solicitudes = cursor.fetchall()
-    print(solicitudes)
+    # print(solicitudes)
     cursor.close()
     return render_template('vistatwo.html', datos=solicitudes)
 
@@ -144,7 +144,7 @@ def vistatwo():
     cursor = mysql.connection.cursor()
     cursor.execute(sql)
     solicitudes = cursor.fetchall()
-    print(solicitudes)
+    # print(solicitudes)
     cursor.close()
     return render_template('dashboard/pages/vistatwo.html', ver=solicitudes)
 
@@ -155,7 +155,7 @@ def buscarconsulta():
     cursor = mysql.connection.cursor()
     cursor.execute(sql)
     soli = cursor.fetchall()
-    print(soli)
+    # print(soli)
     cursor.close()
     return render_template('dashboard/pages/consulta.html', datos=soli)
 

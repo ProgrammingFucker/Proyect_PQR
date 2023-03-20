@@ -4,8 +4,11 @@
 
 <!---Yo----!>
 
-3. "MER" Módelo relacional de las tablas
-4. El lider, puede ver todas las solicitudes dadas (Casi Casi),(No es mucho, solo es por medio de un for, si me muestra todas las solicitudes)
+3. "MER" Módelo relacional de las tablas (En Proceso.)
+
+4. El lider, puede ver todas las solicitudes dadas (Lista),
+									   (No es mucho, solo es por medio de un for, si me muestra todas las solicitudes.)
+
 5. beta: rechazar o aceptar una solicitud o sugerencia dada.
 		- Crear una funciòn, que permita aceptar una solicitud de un estudiante por parte del lider, esto quiere decir que al aceptar esta, se enviará a otra tabla de sql,  		  que reciba el nombre de solicitud procesada o en cuyo caso la solicitud haya sido rechaza enviar a una tabla llamada solicitud rechazada.
 
@@ -15,6 +18,12 @@
 				#Se registra la solicitud.
 				</script>
 
+
+6. Falta realizar el index del estudiante, ya que que lider,
+									     Es el que tiene el acceso a todos los casos registrados, puede registrar casos y ver el estado del caso 									     registrado.
+									*El estudiante* 
+											   Solo tiene la autorización de registrar su caso, y ver el estado de este y ya. no tiene la 												   potestad de ver el estado de de otros estudiantes.
+ 
 <¡---Yo----¡>
 
 

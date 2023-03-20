@@ -28,22 +28,23 @@
   <div class="resultado">
 
     <center>
-      <h1>resultado</h1>
+      <h1>Consultas Realizados por Estudiantes</h1>
       <br />
     </center>
     <center>
-      <table class="table table-sm table-bordered table-striped">
+      <!-- <table class="table table-sm table-bordered table-striped">
         <thead>
         <tr>
-          <td>Num Estudiante</td>
-          <td>Identificación</td>
-          <td>Nombre</td>
-          <td>Apellido</td>
-          <td>Correo</td>
-          <td>Celular</td>
-          <td>Caso</td>
-          <td>Programa</td>
-          <td>Asunto</td>
+          <th>Nº Estudiante</th>
+          <th>Identificación</td>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Celular</th>
+          <th>Caso</th>
+          <th>Programa</th>
+          <th>Asunto</th>
+          <th>Eliminar</th>
         </tr>
         </thead>
         <tbody>
@@ -58,11 +59,44 @@
           <td>{{ solicitudes[6] }}</td>
           <td>{{ solicitudes[7] }}</td>
           <td>{{ solicitudes[8] }}</td>
+          <td>
+            <form action="{{url_for('delete')}}" method="POST">
+                <input type="hidden" name="id" value="{{solicitudes[0]}}">
+                <button class="btn btn-danger">Eliminar</button>
+            </form>
+        </td>
         </tr>
         {% endfor %}
         </tbody>
-      </table>
+      </table> -->
     </center>
   </div>
 </div>
+<br/>
+<br/>
+
+<section class="pie">
+
+  <footer class="text-center text-white" style="background-color: #000057;">
+
+    <div class="container p-4 pb-0">
+
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Puedes encontrarnos en:
+            <br><a class="text-white" href="https://www.instagram.com/UniBarranquilla_/">Instagram</a><br>
+            <a class="text-white" href="https://www.facebook.com/UniBarranquilla/">Facebook</a><br><a class="text-white"
+              href="https://twitter.com/UniBarranquilla">Twitter</a><br><a class="text-white"
+              href="https://www.youtube.com/channel/UC76E4EukC9lbFQ4_rUD5nLw">YouTube</a></span>
+      </section>
+    </div>
+
+
+    <div class="text-center p-3" style="background-color: rgb(0, 0, 85);">
+
+      <a class="text-white" href="https://www.unibarranquilla.edu.co/">unibarranquilla.edu.co</a>
+    </div>
+  </footer>
+</section>
+
 {% endblock %}
