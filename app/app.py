@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 from MySQLdb.cursors import Cursor
-from config import *
 # Crear app mediante instancia
 
 app = Flask(__name__)
@@ -146,14 +145,12 @@ def resultado():
     if request.method == "POST":
         if request.method == "POST":
             search = request.form['buscar']
-            conexion_MySQLdb = connectionBD()  # creando mi instancia a la conexion de BD
-            cur = conexion_MySQLdb.cursor(dictionary=True)
-            querySQL = cur.execute(
-                "SELECT * FROM solicitud WHERE caso='%s' ORDER BY id ASC" % (search,))
-            resultadoBusqueda = cur.fetchone()
-            cur.close()  # Cerrando conexion SQL
-            conexion_MySQLdb.close()  # cerrando conexion de la BD
-            return render_template('dashboard/pages/resultado.html',  miData = resultadoBusqueda, busqueda = search)
+            sql = "SELECT * FROM solicitud WHERE caso = '%s'"%(search,)
+            cursor = mysql.connection.cursor()
+            cursor.execute(sql)
+            solicitudes = cursor.fetchall()
+            print(solicitudes)
+            return render_template('dashboard/pages/resultado.html',  miData=solicitudes, busqueda=search)
     return redirect(url_for('consulta'))
 
 

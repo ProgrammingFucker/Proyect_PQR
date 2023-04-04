@@ -6,43 +6,42 @@
 <div class="resultado" class="text-center">
   <h4 class="text-center">Resultado de Solicitudes</h4>
   <br>
-  {% if (miData) %} <!--Existe-->
+
   <section>
     <table class="table table-sm table-bordered table-striped">
       <thead>
-      <tr>
-        <th>Noº</th>
-        <th>Identificacion</th>
-        <th>Nombre </th>
-        <th>Apellido </th>
-        <th>Correo </th>
-        <th>Celular </th>
-        <th>Caso </th>
-        <th>Programa </th>
-        <th>Asunto </th>
-      </tr>
+        <tr>
+          <th>Noº</th>
+          <th>Identificacion</th>
+          <th>Nombre </th>
+          <th>Apellido </th>
+          <th>Correo </th>
+          <th>Celular </th>
+          <th>Caso </th>
+          <th>Programa </th>
+          <th>Asunto </th>
+        </tr>
       </thead>
       <tbody>
+        {% for solicitudes in miData %}
         <tr>
-          <td>{{ miData.id }}</td>
-          <td>{{ miData.identificacion }}</td>
-          <td>{{ miData.nombre }}</td>
-          <td>{{ miData.apellido }}</td>
-          <td>{{ miData.correo }}</td>
-          <td>{{ miData.celular }}</td>
-          <td>{{ miData.caso }}</td>
-          <td>{{ miData.programa }}</td>
-          <td>{{ miData.asunto }}</td>
+          <td>{{ solicitudes[0] }}</td>
+          <td>{{ solicitudes[1] }}</td>
+          <td>{{ solicitudes[2] }}</td>
+          <td>{{ solicitudes[3] }}</td>
+          <td>{{ solicitudes[4] }}</td>
+          <td>{{ solicitudes[5] }}</td>
+          <td>{{ solicitudes[6] }}</td>
+          <td>{{ solicitudes[7] }}</td>
+          <td>{{ solicitudes[8] }}</td>
+         
         </tr>
+        {% endfor %}
       </tbody>
+
     </table>
-     
+
   </section>
-  {% else %}
-  <p>No hay resultados para la busqueda:
-    <strong class="busq colorCrimson"> {{ busqueda }}</strong>
-  </p>
-  {% endif %}
 
 </div>
 
