@@ -63,6 +63,11 @@ def login_lider():
             return render_template('login_admin.html', msg=msg)
 
 
+
+@app.route('/regist')
+def regist():
+    return render_template('register.html')
+
 # Editar consulta
 def editar(id):
     conn = mysql.connect()
@@ -145,7 +150,7 @@ def resultado():
     if request.method == "POST":
         if request.method == "POST":
             search = request.form['buscar']
-            sql = "SELECT * FROM solicitud WHERE caso = '%s'"%(search,)
+            sql = "SELECT * FROM solicitud WHERE caso = '%s'" % (search,)
             cursor = mysql.connection.cursor()
             cursor.execute(sql)
             solicitudes = cursor.fetchall()
@@ -163,6 +168,18 @@ def vistados():
 @app.route("/vistatres")
 def vistatres():
     return render_template('dashboard/pages/vistatres.html')
+
+
+@app.route('/register', methods=['POST'])
+def register():
+    nombre = request.form['nombre']
+    correo = request.form['email']
+    password = request.form['password']
+    cursor = mysql.connection.cursor()
+    cursor.execute('INSERT INTO login (nombre, correo, password) VALUES (%s, %s, %s)', (nombre, correo, password))
+    mysql.connection.commit()
+    msg='Te has Registrado correctamente.'
+    return render_template('dashboard/pages/op_estudiantes.html', msg=msg)
 
 
 # Registrar casos

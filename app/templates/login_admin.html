@@ -14,15 +14,15 @@
           <div class="card-body">
             <hr>
             {% if msg %}
-          
+
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
               {{ msg }}
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endif %}
             <form action="login_lider" method="POST">
-             <center> <strong><label>Login Lidel</label></center>
-             </strong>
+              <center> <strong><label>Login Lidel</label></center>
+              </strong>
               <br>
               <div class="form-group">
                 <label for="username">Usuario</label>
@@ -34,16 +34,19 @@
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
-              
-                <br/>
+
+              <br />
               <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Acceder</button>
               </div>
 
             </form>
-            
+
             <form action="{{url_for('estudiante')}}" methods="POST">
               <button class="btn btn-link">Estudiante</button>
+              <form action="{{url_for('regist')}}" methods="POST">
+                <button class="btn btn-link">Regitro</button>
+              </form>
             </form>
           </div>
         </div>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro Estudiante</title>
+</head>
+
+<body>
+  <div class="card-body">
+    {% if msg %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    <form action="/register" method="POST">
+      <center> <strong><label>Register Estudiante</label></center>
+      </strong>
+      <br>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo</label>
+        <input type="text" class="form-control" id="email" name="email" required>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+
+      <br />
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+
+
+
+    </form>
+  </div>
+</body>
+
+</html>
+
+{% endblock %}
