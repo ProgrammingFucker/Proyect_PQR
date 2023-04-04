@@ -12,13 +12,14 @@
             </div>
           </div>
           <div class="card-body">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-danger">{{ message }}</div>
-            {% endfor %}
+            <hr>
+            {% if msg %}
+          
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{ msg }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             {% endif %}
-            {% endwith %}
             <form action="login_lider" method="POST">
              <center> <strong><label>Login Lidel</label></center>
              </strong>
