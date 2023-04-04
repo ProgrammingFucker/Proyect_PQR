@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-  <nav class="navbar navbar-white bg-white">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB">
-        <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a>
-      </a>
-    </div>
-  </nav>
-</header>
+<style>
+  #header{
+    background-color: #000057;
+
+  }
+  </style>
+
 <div class="container mt-4">
   <h1>Bienvenido, {{ username }}</h1>
   <p>Aquí puedes ver y administrar las solicitudes de los estudiantes.</p>

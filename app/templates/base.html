@@ -6,6 +6,16 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 </head>
 <body>
+  <header style="background-color:#000057;">
+    <nav class="navbar navbar-blue bg-blue">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="static/img/logo_IUB.png" class="w-75" alt="logoIUB" style="background-color: aliceblue; margin-top: auto;">
+          <a class="dropdown-item text-dark bi-door-open" href="{{ url_for('logout') }}"> Cerrar sesión</a>
+        </a>
+      </div>
+    </nav>
+  </header>
 {% block content %}{% endblock %}
 {% block scripts %}{% endblock %}
 </body>
